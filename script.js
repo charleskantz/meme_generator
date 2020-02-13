@@ -75,7 +75,7 @@ window.onload = function(){
         if(e.target.className === "meme-close-div"){
             e.target.firstChild.style.display = "inline";
         }
-        if(e.target.className === "meme-close"){
+        if(e.target.className === "meme-close"){ // makes sure the close button remains visible on mouseout of 'meme-close-div'
             e.target.style.display = "inline";
         }
     });
