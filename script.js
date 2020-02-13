@@ -8,16 +8,27 @@ window.onload = function(){
     });
 
     formSubmit.onclick = function(){ // pull submitted data, send to meme generation, clear fields
-        var formImgLink = document.getElementById('url');
+        var formNoContent = document.querySelector('.form-no-content');
+        var formImgLink = document.querySelector("input[name=form-image-url]");
         var formTextTop = document.querySelector("input[name=form-text-top]");
         var formTextBottom = document.querySelector("input[name=form-text-bottom]");
-        var topTxt = formTextTop.value;
-        var botTxt = formTextBottom.value;
-        var imgLink = formImgLink.value;
-        makeMeme(imgLink, topTxt, botTxt);
-        formTextTop.value = '';
-        formTextBottom.value = '';
-        formImgLink.value = '';
+        if(formImgLink.value === ''){
+            formNoContent.innerText = "Try adding an image for best results!"
+        } else {
+            if(formTextTop.value === '' && formTextBottom.value === ''){
+                var formNoContent = document.querySelector('.form-no-content');
+                formNoContent.innerText = "Adding some text will spice it up!";
+            } else {
+                formNoContent.innerText = '';
+                var topTxt = formTextTop.value;
+                var botTxt = formTextBottom.value;
+                var imgLink = formImgLink.value;
+                makeMeme(imgLink, topTxt, botTxt);
+                formTextTop.value = '';
+                formTextBottom.value = '';
+                formImgLink.value = '';
+            }
+        }
     }
 
     // Meme generation
