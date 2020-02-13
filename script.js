@@ -41,14 +41,24 @@ window.onload = function(){
         var memeCloseDiv = document.createElement('div'); // parent div for close button for mouseout events
         memeCloseDiv.className = "meme-close-div";
 
-        memeTop.appendChild(pTop); // append all elements to parent div and append that to webpage
+        memeTop.appendChild(pTop); // append all elements to parent div
         memeBot.appendChild(pBot);
         memeCloseDiv.appendChild(memeClose);
         memeBox.appendChild(memeTop);
         memeBox.appendChild(memeBot);
         memeBox.appendChild(memeCloseDiv);
-        var memeList = document.querySelector('.meme-list');
-        memeList.appendChild(memeBox);
+
+        var memeList = document.querySelector('.meme-list'); // append new meme to list in 1st position
+        if(!memeList.hasChildNodes()){
+            memeList.appendChild(memeBox);
+            memeBox.classList.add("first-meme");
+        } else {
+            var firstMeme = document.querySelector('.first-meme')
+            memeList.insertBefore(memeBox, firstMeme);
+            firstMeme.classList.remove("first-meme");
+            memeBox.classList.add("first-meme");
+        }
+
     }
 
     // Delete meme
