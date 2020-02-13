@@ -7,7 +7,7 @@ window.onload = function(){
         e.preventDefault();
     });
 
-    formSubmit.onclick = function(){ // pull submitted data and send to meme generation
+    formSubmit.onclick = function(){ // pull submitted data, send to meme generation, clear fields
         var formImgLink = document.getElementById('url');
         var formTextTop = document.querySelector("input[name=form-text-top]");
         var formTextBottom = document.querySelector("input[name=form-text-bottom]");
@@ -15,6 +15,9 @@ window.onload = function(){
         var botTxt = formTextBottom.value;
         var imgLink = formImgLink.value;
         makeMeme(imgLink, topTxt, botTxt);
+        formTextTop.value = '';
+        formTextBottom.value = '';
+        formImgLink.value = '';
     }
 
     // Meme generation
