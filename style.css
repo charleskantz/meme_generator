@@ -131,7 +131,6 @@ label {
         -2px 0px 0 #000,
         2px 2px 5px #000;
     width: 500px;
-    height: 500px;
     background-color: rgb(246,246,247);
     margin: 6px;
     position: relative;
@@ -191,6 +190,9 @@ label {
 }
 
 .meme-close-div {
+}
+
+img {
     width: 500px;
-    height: 500px;
+    border-radius: 4px;
 }
